@@ -87,7 +87,7 @@ body {
 }
 
 .login {
-    position: absolute;
+    position: fixed;
     width: 95%;
     background-color: white;
     padding: 15% 3%;

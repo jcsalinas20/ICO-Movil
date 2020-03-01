@@ -17,20 +17,60 @@
  * under the License.
  */
 
-$(document).ready(function () {
+$(document).ready(function() {
     $(".tabs").tabs()
-
-    $(".sidenav").sidenav()
 
     $(".collapsible").collapsible()
 
-    $(".agregarItem").click(agregarItem)
-});
+    $("#submit").click(authLogin)
+})
+
+function authLogin() {
+    var user = document.getElementById("user").value
+    getEncryptPass(user, document.getElementById("pass").value)
+}
+
+function getEncryptPass(user, pass) {
+    $.ajax({
+        method: "GET",
+        url: "https://api-ico.herokuapp.com/api/encrypt/" + pass,
+        dataType: "json" // necessitem això pq ens retorni un objecte JSON
+    })
+        .done(function(msg) {
+            console.log(msg.password)
+            login(user, msg.password)
+        })
+        .fail(function() {
+            alert("ERROR")
+        })
+}
+
+function login(user, pass) {
+    $.ajax({
+        method: "GET",
+        url:
+            "https://api-ico.herokuapp.com/api/paciente/auth/" +
+            user +
+            "/" +
+            pass,
+        dataType: "json" // necessitem això pq ens retorni un objecte JSON
+    })
+        .done(function(msg) {
+            M.toast({ html: msg.mensaje })
+        })
+        .fail(function() {
+            alert("ERROR")
+        })
+}
 
 var app = {
     // Application Constructor
     initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+        document.addEventListener(
+            "deviceready",
+            this.onDeviceReady.bind(this),
+            false
+        )
     },
 
     // deviceready Event Handler
@@ -38,20 +78,20 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        this.receivedEvent('deviceready');
+        this.receivedEvent("deviceready")
     },
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+        var parentElement = document.getElementById(id)
+        var listeningElement = parentElement.querySelector(".listening")
+        var receivedElement = parentElement.querySelector(".received")
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+        listeningElement.setAttribute("style", "display:none;")
+        receivedElement.setAttribute("style", "display:block;")
 
-        console.log('Received Event: ' + id);
+        console.log("Received Event: " + id)
     }
-};
+}
 
-app.initialize();
+app.initialize()
