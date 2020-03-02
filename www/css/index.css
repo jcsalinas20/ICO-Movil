@@ -87,11 +87,11 @@ body {
 }
 
 .login {
-    position: fixed;
+    position: absolute;
     width: 95%;
     background-color: white;
     padding: 15% 3%;
-    margin: 50% 10px;
+    margin: 50% 10px 0 10px;
     box-shadow: 0 0 2px black;
     border-radius: 7px;
 }

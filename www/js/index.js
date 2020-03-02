@@ -18,10 +18,6 @@
  */
 
 $(document).ready(function() {
-    $(".tabs").tabs()
-
-    $(".collapsible").collapsible()
-
     $("#submit").click(authLogin)
 })
 
@@ -57,6 +53,9 @@ function login(user, pass) {
     })
         .done(function(msg) {
             M.toast({ html: msg.mensaje })
+            if (msg.mensaje === "El login se realizó correctamente.") {
+                location.href = "./pages/home/home.html"
+            }
         })
         .fail(function() {
             alert("ERROR")
