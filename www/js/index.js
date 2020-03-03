@@ -17,8 +17,10 @@
  * under the License.
  */
 
-$(document).ready(function() {
+$(document).ready(function () {
     $("#submit").click(authLogin)
+
+    $('.tabs').tabs()
 })
 
 function authLogin() {
@@ -28,43 +30,44 @@ function authLogin() {
 
 function getEncryptPass(user, pass) {
     $.ajax({
-        method: "GET",
-        url: "https://api-ico.herokuapp.com/api/encrypt/" + pass,
-        dataType: "json" // necessitem això pq ens retorni un objecte JSON
-    })
-        .done(function(msg) {
+            method: "GET",
+            url: "https://api-ico.herokuapp.com/api/encrypt/" + pass,
+            dataType: "json" // necessitem això pq ens retorni un objecte JSON
+        })
+        .done(function (msg) {
             console.log(msg.password)
             login(user, msg.password)
         })
-        .fail(function() {
+        .fail(function () {
             alert("ERROR")
         })
 }
 
 function login(user, pass) {
     $.ajax({
-        method: "GET",
-        url:
-            "https://api-ico.herokuapp.com/api/paciente/auth/" +
-            user +
-            "/" +
-            pass,
-        dataType: "json" // necessitem això pq ens retorni un objecte JSON
-    })
-        .done(function(msg) {
-            M.toast({ html: msg.mensaje })
+            method: "GET",
+            url: "https://api-ico.herokuapp.com/api/paciente/auth/" +
+                user +
+                "/" +
+                pass,
+            dataType: "json" // necessitem això pq ens retorni un objecte JSON
+        })
+        .done(function (msg) {
+            M.toast({
+                html: msg.mensaje
+            })
             if (msg.mensaje === "El login se realizó correctamente.") {
                 location.href = "./pages/home/home.html"
             }
         })
-        .fail(function() {
+        .fail(function () {
             alert("ERROR")
         })
 }
 
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         document.addEventListener(
             "deviceready",
             this.onDeviceReady.bind(this),
@@ -76,12 +79,12 @@ var app = {
     //
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
-    onDeviceReady: function() {
+    onDeviceReady: function () {
         this.receivedEvent("deviceready")
     },
 
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
+    receivedEvent: function (id) {
         var parentElement = document.getElementById(id)
         var listeningElement = parentElement.querySelector(".listening")
         var receivedElement = parentElement.querySelector(".received")

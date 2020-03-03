@@ -73,6 +73,10 @@ body {
     }
 }
 
+#frameNoticias {
+    height: max-content;
+}
+
 .container-general {
     display: flex;
     flex-flow: column wrap;
