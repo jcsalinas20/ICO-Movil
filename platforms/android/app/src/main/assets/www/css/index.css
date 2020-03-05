@@ -73,6 +73,10 @@ body {
     }
 }
 
+#frameNoticias {
+    height: max-content;
+}
+
 .container-general {
     display: flex;
     flex-flow: column wrap;
@@ -81,8 +85,6 @@ body {
 }
 
 .logo {
-    position: fixed;
-    width: 100%;
     height: 35%;
     background-color: #039ae7;
     display: flex;
@@ -111,7 +113,7 @@ input[type=password] {
     font-size: 24px !important;
 }
 
-input[type=button]{
+input[type=button] {
     width: 100% !important;
     border-radius: 50px;
     font-size: 24px !important;
@@ -186,4 +188,8 @@ h1 {
 .blink {
     animation: fade 3000ms infinite;
     -webkit-animation: fade 3000ms infinite;
+}
+
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
