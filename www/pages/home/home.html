@@ -20,20 +20,20 @@
 </head>
 
 <body>
+    <script>
+        this.num = 20;
+    </script>
 
     <div id="noticias" class="col s12 frames">
-        <iframe frameborder="0" id="frameNoticias" width="100%" height="87%"
-            src="./noticias/noticias.html">
+        <iframe frameborder="0" id="frameNoticias" width="100%" height="87%" src="./noticias/noticias.html">
         </iframe>
     </div>
     <div id="consultas" class="col s12 frames">
-        <iframe frameborder="0" id="frameNoticias" width="100%" height="87%"
-            src="./consultas/consultas.html">
+        <iframe frameborder="0" id="frameConsultas" width="100%" height="87%" src="./consultas/consultas.html">
         </iframe>
     </div>
     <div id="pastillas" class="col s12 frames">
-        <iframe frameborder="0" id="frameNoticias" width="100%" height="87%"
-            src="./pastillas/pastillas.html">
+        <iframe frameborder="0" id="framePastillas" width="100%" height="87%" src="./pastillas/pastillas.html">
         </iframe>
     </div>
 
@@ -42,17 +42,21 @@
         <div class="container">
             <div class="row">
                 <div class="col s12">
-                    <ul class="tabs">
-                        <li class="tab col s4"><a class="active" href="#noticias">Home</a></li>
-                        <li class="tab col s4"><a href="#consultas">Consultas</a></li>
-                        <li class="tab col s4"><a href="#pastillas">Pastillas</a></li>
+                    <ul id="footer" class="tabs">
+                        <li class="tab col s4"><a id="home" class="active" href="#noticias">Home</a></li>
+                        <li class="tab col s4"><a id="consultas" href="#consultas">Consultas</a></li>
+                        <li class="tab col s4"><a id="pastillas" href="#pastillas">Pastillas</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
 
-
+    <script>
+        addEventListener('touchstart', function () {
+            
+        })
+    </script>
 
     <script src="/www/js/index.js"></script>
     <!--JavaScript at end of body for optimized loading-->
