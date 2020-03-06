@@ -6,13 +6,12 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Home</title>
 
-        <!--IMPORTACION DE JQUERY-->
+        <!--Importacion de JQuery-->
         <script
             src=".././../js/jquery-3.4.1.js"
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
             crossorigin="anonymous"
         ></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
         <!--Import Google Icon Font-->
         <link href="../../css/icon.css" rel="stylesheet" />
         <!--Import materialize.css-->
@@ -24,7 +23,7 @@
     </head>
 
     <body>
-        <!--IFRAME DE NOTICIAS o HOME-->
+        <!--IFrame de Noticias o Home-->
         <div id="container-frame-home" class="col s12 frames">
             <iframe
                 frameborder="0"
@@ -35,7 +34,7 @@
             >
             </iframe>
         </div>
-        <!--IFRAME DE CONSULTAS-->
+        <!--IFrame de Consultas-->
         <div id="container-frame-consultas" class="col s12 frames">
             <iframe
                 frameborder="0"
@@ -46,7 +45,7 @@
             >
             </iframe>
         </div>
-        <!--IFRAME DE PASTILLAS-->
+        <!--IFrame de Pastillas-->
         <div id="container-frame-pastillas" class="col s12 frames">
             <iframe
                 frameborder="0"
@@ -96,43 +95,46 @@
         </footer>
 
         <script>
-            // FUNCION PARA HACER EL EFECTO SLIDE EN EL FOOTER
+            // Funcion para hacer el efecto de slide en el Footer
             function footerSlidePage(page) {
                 if (
                     document.getElementsByClassName("indicator")[0].style
-                        .left === "0px" // SI ES IGUAL A 0 LA PESTAÑA ACTUAL ES HOME
+                        .left === "0px" // Si es igual a 0 la pestaña actual es Home
                 ) {
                     paginaActual = "Home"
                 } else if (
                     document.getElementsByClassName("indicator")[0].style
-                        .left === "225px" // SI ES IGUAL A 225 LA PESTAÑA ACTUAL ES PASTILLAS
+                        .left === "225px" // Si es igual a 225 la pestaña actual es Pastillas
                 ) {
                     paginaActual = "Pastillas"
                 } else {
-                    paginaActual = "Consultas" // SI NO ES NINGUNA DE LAS OTRAS ESTOY EN CONSULTAS
+                    paginaActual = "Consultas" // Si no es ninguna de las 2 la pestaña actual es Consultas
                 }
-                paginaSeleccionada = page // PAGINA A LA QUE VA A SALTAR
+                paginaSeleccionada = page // Pagina a la que se va ha saltar
 
-                // GUARDAR EN VARIABLE LA PESTAÑA ACTUAL Y A LA QUE SE VA A SALTAR
+                // Guardar en una variable la pestña actual y a la que se va ha saltar
                 saltoDePagina = paginaActual + "/" + paginaSeleccionada
 
-                // PASAR DE LA PESTAÑA HOME A CONSULTAS
+                // Pasar de la pestaña Home a Consultas
                 if (saltoDePagina === "Home/Consultas") {
                     document.getElementById(
                         "frameConsultas"
                     ).contentWindow.document.body.style.animation =
                         "0.5s ease-out 0s 1 slideInFromRight"
-                } // PASAR DE LA PESTAÑA PASTILLAS A CONSULTAS
+                } // Pasar de la pestaña Pastillas a Consultas
                 else if (saltoDePagina === "Pastillas/Consultas") {
                     document.getElementById(
                         "frameConsultas"
                     ).contentWindow.document.body.style.animation =
                         "0.5s ease-out 0s 1 slideInFromLeft"
-                } // PASAR DE LA PESTAÑA PASTILLAS A HOME o CONSULTAS A HOME
+                } // Pasar de la pestaña Pastillas a Home o Consultas a Home
                 else if (
                     saltoDePagina === "Pastillas/Home" ||
                     saltoDePagina === "Consultas/Home"
                 ) {
+                    document.getElementById(
+                        "container-frame-pastillas"
+                    ).style.display = "none"
                     document.getElementById(
                         "frameHome"
                     ).contentWindow.document.body.style.animation =
