@@ -35,7 +35,6 @@ function getEncryptPass(user, pass) {
             dataType: "json" // necessitem això pq ens retorni un objecte JSON
         })
         .done(function (msg) {
-            console.log(msg.password)
             login(user, msg.password)
         })
         .fail(function () {

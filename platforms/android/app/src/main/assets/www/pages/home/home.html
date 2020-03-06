@@ -17,12 +17,15 @@
     <link rel="stylesheet" href="./home.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+        var primeraCargaDePagina = true;
+        var paginaActual = 'Home';
+        var paginaSeleccionada = '';
+    </script>
 </head>
 
 <body>
-    <script>
-        this.num = 20;
-    </script>
 
     <div id="container-frame-home" class="col s12 frames">
         <iframe frameborder="0" id="frameHome" width="100%" height="87%" src="./noticias/noticias.html">
@@ -41,11 +44,14 @@
     <footer class="page-footer">
         <div class="container">
             <div class="row">
-                <div class="col s12">
+                <div class="col s12 ningunPadding">
                     <ul id="footer" class="tabs">
-                        <li class="tab col s4"><a id="home" class="active" href="#container-frame-home">Home</a></li>
-                        <li class="tab col s4"><a id="consultas" href="#container-frame-consultas">Consultas</a></li>
-                        <li class="tab col s4"><a id="pastillas" href="#container-frame-pastillas">Pastillas</a></li>
+                        <li class="tab col s4"><a onclick="footerSlidePage('Home')" id="home" class="active"
+                                href="#container-frame-home">Home</a></li>
+                        <li class="tab col s4"><a onclick="footerSlidePage('Consultas')" id="consultas"
+                                href="#container-frame-consultas">Consultas</a></li>
+                        <li class="tab col s4"><a onclick="footerSlidePage('Pastillas')" id="pastillas"
+                                href="#container-frame-pastillas">Pastillas</a></li>
                     </ul>
                 </div>
             </div>
@@ -53,9 +59,16 @@
     </footer>
 
     <script>
-        addEventListener('touchstart', function () {
-            
-        })
+        function footerSlidePage(page) {
+            if (primeraCargaDePagina) {
+                paginaSeleccionada = page;
+                primeraCargaDePagina = false;
+            } else {
+                paginaActual = paginaSeleccionada;
+                paginaSeleccionada = page
+            }
+            console.log(paginaActual + ' - ' + paginaSeleccionada)
+        }
     </script>
 
     <script src=".././../js/index.js"></script>
