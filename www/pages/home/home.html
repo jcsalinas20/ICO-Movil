@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Home</title>
 
+        <!--IMPORTACION DE JQUERY-->
         <script
             src=".././../js/jquery-3.4.1.js"
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -16,12 +17,14 @@
         <link href="../../css/icon.css" rel="stylesheet" />
         <!--Import materialize.css-->
         <link rel="stylesheet" href=".././../css/materialize.min.css" />
+        <!--CSS DEL HOME-->
         <link rel="stylesheet" href="./home.css" />
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
 
     <body>
+        <!--IFRAME DE NOTICIAS o HOME-->
         <div id="container-frame-home" class="col s12 frames">
             <iframe
                 frameborder="0"
@@ -32,6 +35,7 @@
             >
             </iframe>
         </div>
+        <!--IFRAME DE CONSULTAS-->
         <div id="container-frame-consultas" class="col s12 frames">
             <iframe
                 frameborder="0"
@@ -42,6 +46,7 @@
             >
             </iframe>
         </div>
+        <!--IFRAME DE PASTILLAS-->
         <div id="container-frame-pastillas" class="col s12 frames">
             <iframe
                 frameborder="0"
@@ -91,22 +96,26 @@
         </footer>
 
         <script>
+            // FUNCION PARA HACER EL EFECTO SLIDE EN EL FOOTER
             function footerSlidePage(page) {
                 if (
                     document.getElementsByClassName("indicator")[0].style
-                        .left === "0px"
+                        .left === "0px" // SI ES IGUAL A 0 LA PESTAÑA ACTUAL ES HOME
                 ) {
                     paginaActual = "Home"
                 } else if (
                     document.getElementsByClassName("indicator")[0].style
-                        .left === "225px"
+                        .left === "225px" // SI ES IGUAL A 225 LA PESTAÑA ACTUAL ES PASTILLAS
                 ) {
                     paginaActual = "Pastillas"
                 } else {
-                    paginaActual = "Consultas"
+                    paginaActual = "Consultas" // SI NO ES NINGUNA DE LAS OTRAS ESTOY EN CONSULTAS
                 }
-                paginaSeleccionada = page
+                paginaSeleccionada = page // PAGINA A LA QUE VA A SALTAR
+
+                // GUARDAR EN VARIABLE LA PESTAÑA ACTUAL Y A LA QUE SE VA A SALTAR
                 saltoDePagina = paginaActual + "/" + paginaSeleccionada
+
                 // PASAR DE LA PESTAÑA HOME A CONSULTAS
                 if (saltoDePagina === "Home/Consultas") {
                     document.getElementById(
@@ -119,7 +128,8 @@
                         "frameConsultas"
                     ).contentWindow.document.body.style.animation =
                         "0.5s ease-out 0s 1 slideInFromLeft"
-                } else if (
+                } // PASAR DE LA PESTAÑA PASTILLAS A HOME o CONSULTAS A HOME
+                else if (
                     saltoDePagina === "Pastillas/Home" ||
                     saltoDePagina === "Consultas/Home"
                 ) {
@@ -131,8 +141,9 @@
             }
         </script>
 
+        <!--SCRIPT GENERAL-->
         <script src=".././../js/index.js"></script>
-        <!--JavaScript at end of body for optimized loading-->
+        <!--SCRIPT DE MATERIALIZE-->
         <script src=".././../js/materialize.min.js"></script>
     </body>
 </html>
