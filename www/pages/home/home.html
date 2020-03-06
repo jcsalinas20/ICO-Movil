@@ -118,11 +118,37 @@
                 // Pasar de la pestaña Home a Consultas
                 if (saltoDePagina === "Home/Consultas") {
                     document.getElementById(
+                        "frameHome"
+                    ).contentWindow.document.body.style.animation =
+                        "0.5s ease-out 0s 1 slideInFromLeft"
+                    document.getElementById(
                         "frameConsultas"
                     ).contentWindow.document.body.style.animation =
                         "0.5s ease-out 0s 1 slideInFromRight"
+                    document.getElementById("container-frame-home").className =
+                        "col s12 frames"
+                    document.getElementById(
+                        "container-frame-home"
+                    ).style.display = "none"
+                } // Pasar de la pestaña Home a Pastillas
+                else if (saltoDePagina === "Home/Pastillas") {
+                    document.getElementById(
+                        "container-frame-home"
+                    ).style.display = "none"
+                    document.getElementById(
+                        "frameConsultas"
+                    ).contentWindow.document.body.style.animation =
+                        "0.5s ease-out 0s 1 slideInFromLeft"
+                    document.getElementById(
+                        "frameHome"
+                    ).contentWindow.document.body.style.animation =
+                        "0.5s ease-out 0s 1 slideInFromLeft"
                 } // Pasar de la pestaña Pastillas a Consultas
                 else if (saltoDePagina === "Pastillas/Consultas") {
+                    document.getElementById(
+                        "container-frame-pastillas"
+                    ).style.display = "none"
+
                     document.getElementById(
                         "frameConsultas"
                     ).contentWindow.document.body.style.animation =
@@ -136,7 +162,25 @@
                         "container-frame-pastillas"
                     ).style.display = "none"
                     document.getElementById(
+                        "container-frame-consultas"
+                    ).style.display = "none"
+
+                    document.getElementById(
+                        "frameConsultas"
+                    ).contentWindow.document.body.style.animation =
+                        "0.5s ease-out 0s 1 slideInFromRight"
+                    document.getElementById(
                         "frameHome"
+                    ).contentWindow.document.body.style.animation =
+                        "0.5s ease-out 0s 1 slideInFromLeft"
+                } // Pasar de la pestaña Consultas a Pastillas
+                else if (saltoDePagina === "Consultas/Pastillas") {
+                    document.getElementById(
+                        "container-frame-consultas"
+                    ).style.display = "none"
+
+                    document.getElementById(
+                        "frameConsultas"
                     ).contentWindow.document.body.style.animation =
                         "0.5s ease-out 0s 1 slideInFromLeft"
                 }

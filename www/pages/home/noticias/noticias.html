@@ -33,6 +33,10 @@
                 transform: translateX(0);
             }
         }
+
+        body {
+            animation: 0.5s ease-out 0s 1 slideInFromRight;
+        }
     </style>
 </head>
 
@@ -58,7 +62,9 @@
                 window.parent.document.getElementById("container-frame-home").style.display = 'none';// se oculta
                 window.parent.document.getElementById("home").className = '';// se quita la clase active
 
+                console.log(document.body.style.animation);
                 document.body.style.animation = '0.5s ease-out 0s 1 slideInFromLeft';// se agrega el efecto a la siguiente pestaña
+                
                 window.parent.document.getElementById("container-frame-consultas").className =
                     'col s12 frames active';// se agrega la clase active
                 window.parent.document.getElementById("container-frame-consultas").style.display = 'block';// se muestra
