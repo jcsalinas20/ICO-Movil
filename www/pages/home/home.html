@@ -16,6 +16,7 @@
         <link href="../../css/icon.css" rel="stylesheet" />
         <!--Import materialize.css-->
         <link rel="stylesheet" href=".././../css/materialize.min.css" />
+        <script src="home.js"></script>
         <!--CSS DEL HOME-->
         <link rel="stylesheet" href="./home.css" />
         <!--Let browser know website is optimized for mobile-->
@@ -122,16 +123,7 @@
         </footer>
 
         <script>
-            window.onload = function() {
-                setTimeout(loadPopUp, 3000)// Esperar 3 segundos
-            }
-            function loadPopUp() {
-                document.getElementById("frame-password").style.animation =
-                    "1s ease-out 0s 1 popup"
-                document.getElementById(
-                    "container-frame-cambio-password"
-                ).style.display = "flex"
-            }
+            primerInicioSesion(getParameterByName('user'))
 
             // Funcion para hacer el efecto de slide en el Footer
             function footerSlidePage(page) {
