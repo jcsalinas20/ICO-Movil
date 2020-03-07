@@ -20,7 +20,7 @@ function comprobarPassword() {
 
     if (pass.value.length > 5) {
         if (pass.value === passRepetida.value) {
-            console.log(pass.value + " - " + passRepetida.value)
+            return true
         } else {
             mostrarError("Las contraseñas no coinciden")
             passRepetida.value = ""
@@ -30,8 +30,11 @@ function comprobarPassword() {
         pass.value = ""
         passRepetida.value = ""
     }
+    return false
 }
 
 function cambioPasswod() {
-    comprobarPassword()
+    if (comprobarPassword()) {
+        console.log("Holi")
+    }
 }
