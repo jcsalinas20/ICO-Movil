@@ -24,23 +24,7 @@ $(document).ready(function () {
 })
 
 function authLogin() {
-    var user = document.getElementById("user").value
-    getEncryptPass(user, document.getElementById("pass").value)
-}
-
-function getEncryptPass(user, pass) {
-    $.ajax({
-            method: "GET",
-            url: "https://api-ico.herokuapp.com/api/encrypt/" + pass,
-            dataType: "json" // necessitem això pq ens retorni un objecte JSON
-        })
-        .done(function (msg) {
-            console.log(msg.password)
-            login(user, msg.password)
-        })
-        .fail(function () {
-            alert("ERROR")
-        })
+    login(document.getElementById("user").value, document.getElementById("pass").value)
 }
 
 function login(user, pass) {
