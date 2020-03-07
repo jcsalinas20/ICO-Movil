@@ -122,10 +122,16 @@
         </footer>
 
         <script>
-            $(document).ready(function() {
-                document.getElementById('frame-password').style.animation = '1s ease-out 0s 1 popup'
-                document.getElementById('container-frame-cambio-password').style.display = 'flex'
-            })
+            window.onload = function() {
+                setTimeout(loadPopUp, 3000)// Esperar 3 segundos
+            }
+            function loadPopUp() {
+                document.getElementById("frame-password").style.animation =
+                    "1s ease-out 0s 1 popup"
+                document.getElementById(
+                    "container-frame-cambio-password"
+                ).style.display = "flex"
+            }
 
             // Funcion para hacer el efecto de slide en el Footer
             function footerSlidePage(page) {
