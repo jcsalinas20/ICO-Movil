@@ -45,7 +45,7 @@ function login(user, pass) {
             }
         })
         .fail(function () {
-            alert("ERROR")
+            alert("No se pudo establecer conexión con el servidor")
         })
 }
 
