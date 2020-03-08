@@ -18,7 +18,6 @@ function primerInicioSesion(user) {
 function delayPopUp() {
     // Comprobar si es el primer inicio sesion
     window.onload = function() {
-        console.log("estoy dentro")
         setTimeout(loadPopUp, 3000) // Esperar 3 segundos
     }
 }
@@ -37,4 +36,10 @@ function getParameterByName(name) {
     return results === null
         ? ""
         : decodeURIComponent(results[1].replace(/\+/g, " "))
+}
+
+function activateToast(mensaje) {
+    M.toast({
+        html: mensaje
+    })
 }

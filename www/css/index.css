@@ -88,6 +88,8 @@ body {
     height: 35%;
     background-color: #039ae7;
     display: flex;
+    width: 100%;
+    position: fixed;
 }
 
 .login {

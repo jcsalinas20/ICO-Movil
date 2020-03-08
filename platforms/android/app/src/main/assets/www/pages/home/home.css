@@ -32,3 +32,10 @@
 #container-frame-pastillas {
     transition: 3s;
 }
+
+#frame-password {
+    margin: auto;
+    border-radius: 20px;
+    border: 1px solid black;
+    box-shadow: 0 0 10px black;
+}
