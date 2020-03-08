@@ -24,6 +24,8 @@ $(document).ready(function() {
 })
 
 function authLogin() {
+    document.getElementById("frame-preload").contentWindow.document.getElementById('mensaje').innerHTML = 'Comprobando la autenticación del usuario.'
+    document.getElementById("frame-preload").style.display = "block"
     login(
         document.getElementById("user").value,
         document.getElementById("pass").value
@@ -38,6 +40,7 @@ function login(user, pass) {
         dataType: "json"
     })
         .done(function(msg) {
+            document.getElementById("frame-preload").style.display = "none"
             M.toast({
                 html: msg.mensaje
             })
