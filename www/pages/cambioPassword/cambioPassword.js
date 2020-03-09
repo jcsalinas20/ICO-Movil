@@ -35,6 +35,8 @@ function comprobarPassword() {
 
 function cambioPasswod(user) {
     if (comprobarPassword()) {
+        window.parent.document.getElementById("frame-preload").contentWindow.document.getElementById('mensaje').innerHTML = 'Cambiando la contraseña.'
+        window.parent.document.getElementById("frame-preload").style.display = "block"
         var pass = document.getElementById("pass").value
         $.ajax({
                 url: `https://api-ico.herokuapp.com/api/${user}/cambio-password/${pass}`,
@@ -48,13 +50,14 @@ function cambioPasswod(user) {
             })
 
             .fail(function () {
-                alert("No se pudo establecer conexión con el servidor")
+                window.parent.document.getElementById("frame-preload").style.display = "none"
+                window.parent.activateToast('No se pudo establecer conexión con el servidor')
             })
     }
 }
 
 function ocultarPopUp() {
-    console.log('gihpghpi')
     window.parent.document.getElementById('container-frame-cambio-password').style.display = 'none'
     window.parent.activateToast('Contraseña actualizada correctamente.')
+    window.parent.document.getElementById("frame-preload").style.display = "none"
 }

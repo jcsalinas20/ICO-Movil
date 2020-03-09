@@ -49,7 +49,10 @@ function login(user, pass) {
             }
         })
         .fail(function() {
-            alert("No se pudo establecer conexión con el servidor")
+            document.getElementById("frame-preload").style.display = "none"
+            M.toast({
+                html: 'No se pudo establecer conexión con el servidor'
+            })
         })
 }
 
