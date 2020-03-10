@@ -45,8 +45,14 @@
     z-index: 2000;
 }
 
+#titulo {
+    color: white;
+    font-weight: bold;
+    margin-top: 25%;
+    text-shadow: 0 0 3px black;
+}
+
 .navbar-page ul {
-    margin-top: 40%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -76,6 +82,7 @@ p {
     font-size: 20px;
     text-decoration: none;
     text-transform: none;
+    text-shadow: 0 0 2px black;
 }
 
 .navbar-page ul li .social-media-list li {
