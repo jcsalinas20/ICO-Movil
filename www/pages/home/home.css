@@ -39,3 +39,10 @@
     border: 1px solid black;
     box-shadow: 0 0 10px black;
 }
+
+#frameMenu {
+    width: 23%;
+    height: 9%;
+    right: 0;
+    top: 0;
+}

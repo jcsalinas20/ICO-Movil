@@ -1,7 +1,13 @@
 function primerInicioSesion(user) {
+    var API;
+    if (user === '') {
+        API = `https://api-ico.herokuapp.com/api/null/primer-inicio-sesion`
+    } else {
+        API = `https://api-ico.herokuapp.com/api/${user}/primer-inicio-sesion`
+    }
     $.ajax({
             type: "GET",
-            url: `https://api-ico.herokuapp.com/api/${user}/primer-inicio-sesion`,
+            url: API,
             crossDomain: true,
             dataType: "json"
         })

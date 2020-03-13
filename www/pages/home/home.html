@@ -41,14 +41,16 @@
     <iframe style="display: none; position: absolute; z-index: 2;" id="frame-preload" src="../preload/preload.html"
         frameborder="0" width="100%" height="100%"></iframe>
 
-    <div style="z-index: 1; display: none; background-color: #69696970;" id="container-frame-cambio-password"
+    <div style="z-index: 3; display: none; background-color: #69696970;" id="container-frame-cambio-password"
         class="col s12 frames">
         <iframe rel="preload" id="frame-password" src="../cambioPassword/cambioPassword.html" frameborder="0"
             width="90%" height="60%"></iframe>
     </div>
 
-    <iframe style="position: absolute; z-index: 2;" frameborder="0" id="frameHome" width="100%" height="100%" src="../menu/menu.html">
+    <!-- OCULTARLO -->
+    <iframe style="z-index: 2; position: fixed;" frameborder="0" id="frameMenu" src="../menu/menu.html">
     </iframe>
+
     <!--IFrame de Noticias o Home-->
     <div id="container-frame-home" class="col s12 frames">
         <iframe frameborder="0" id="frameHome" width="100%" height="87%" src="./noticias/noticias.html">

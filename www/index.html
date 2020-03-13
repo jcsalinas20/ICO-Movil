@@ -46,12 +46,26 @@
             <label>Contraseña:</label>
             <div class="container-input">
                 <!-- Texto Input para la contraseña -->
-                <input type="text" name="user" id="pass" value="1234" />
+                <input type="text" name="user" id="pass" value="123456" />
             </div>
             <input type="button" value="Iniciar Sesión" id="submit" />
         </div>
     </div>
 
+    <script>
+        document.getElementById("user").addEventListener("keydown", e => {
+            var input = $("#user")
+            letras = input.val().replace("/", "")
+            input.val(letras)
+        })
+        document
+            .getElementById("pass")
+            .addEventListener("keydown", e => {
+                var input = $("#pass")
+                letras = input.val().replace("/", "")
+                input.val(letras)
+            })
+    </script>
     <script src="js/index.js"></script>
     <!--JavaScript at end of body for optimized loading-->
     <script src="js/materialize.min.js"></script>

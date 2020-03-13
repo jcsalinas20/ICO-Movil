@@ -21,30 +21,46 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
-        function mostrarMenu() {
+        function ocultarMostrarMenu() {
             var circle = document.getElementById('circulo')
             var line1 = document.getElementById('linea1')
             var line2 = document.getElementById('linea2')
             var menu = document.getElementById('menu')
+            var frameMenu = window.parent.document.getElementById('frameMenu')
             if (menu.className === 'navbar-page open-page-navbar') {
+                mostrarMenu(circle, line1, line2, menu, frameMenu)
+            } else {
+                ocultarMenu(circle, line1, line2, menu, frameMenu)
+            }
+        }
+
+        function mostrarMenu(circle, line1, line2, menu, frameMenu) {
+            frameMenu.style.width = '100%'
+            frameMenu.style.height = '100%'
+            setTimeout(function() {
                 menu.className = 'navbar-page'
                 circle.classList.value = 'circle circle-in'
                 line1.classList.value = 'line-1 line1-in'
                 line2.classList.value = 'line-2 line2-in'
-            } else {
-                menu.className = 'navbar-page open-page-navbar'
-                circle.classList.value = 'circle'
-                line1.classList.value = 'line-1'
-                line2.classList.value = 'line-2'
-            }
-            console.log(circle.classList.value)
+            }, 120);
+        }
+
+        function ocultarMenu(circle, line1, line2, menu, frameMenu) {
+            menu.className = 'navbar-page open-page-navbar'
+            circle.classList.value = 'circle'
+            line1.classList.value = 'line-1'
+            line2.classList.value = 'line-2'
+            setTimeout(function() {
+                frameMenu.style.width = '23%'
+                frameMenu.style.height = '9%'
+            }, 120);
         }
     </script>
 </head>
 
 <body style="background-color: unset;">
     <div class="principal-header">
-        <div class="container"><svg onclick="mostrarMenu()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 386 386"
+        <div class="container"><svg onclick="ocultarMostrarMenu('boton')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 386 386"
                 id="hamburger" data-asu="0">
                 <path
                     d="M1031.78,519.36m55.72-79.54c9.08,14.52,14,30.36,15,33a179.92,179.92,0,0,1,7.51,30.95,181,181,0,1,1-19.54-58.57c1.15,2.12,19.21,49.34-20.43,72.76a93.28,93.28,0,0,1-43,13H843"
@@ -62,7 +78,7 @@
                 <li>
                     <div class="linea-divisoria"></div>
                 </li>
-                <li><a href="/">Home</a></li>
+                <li><a href="../home/home.html">Home</a></li>
                 <li><a href="/ong">Guía</a></li>
                 <li><a href="/about">Perfil</a></li>
                 <li>
