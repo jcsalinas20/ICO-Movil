@@ -34,12 +34,13 @@
 </head>
 
 <body>
-    <p id="userID" style="display: none;"></p>
+    <p id="token" style="display: none;"></p>
     <script>
-        document.getElementById('userID').innerHTML = getParameterByName('user')
+        document.getElementById('token').innerHTML = getParameterByName('token')
     </script>
     <iframe style="display: none; position: absolute; z-index: 2;" id="frame-preload" src="../preload/preload.html"
         frameborder="0" width="100%" height="100%"></iframe>
+
 
     <div style="z-index: 3; display: none; background-color: #69696970;" id="container-frame-cambio-password"
         class="col s12 frames">
@@ -92,7 +93,7 @@
     </footer>
 
     <script>
-        primerInicioSesion(document.getElementById('userID').innerHTML)
+        primerInicioSesion(document.getElementById('token').innerHTML)
 
         // Funcion para hacer el efecto de slide en el Footer
         function footerSlidePage(page) {
