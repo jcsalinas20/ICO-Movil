@@ -35,10 +35,12 @@ var query = function callQuery(token) {
                     i2.appendChild(document.createTextNode("send"))
                     i2.style.verticalAlign = "middle"
                     i2.className = "material-icons"
-                    a.onclick = `mostrarConsulta(${j})`
+                    i2.addEventListener('click', function(){
+                        mostrarConsulta(j)
+                    });
                     a.appendChild(i2)
                     a.className = "secondary-content"
-                    a.href = "#" + j
+                    // a.href = "#" + j
                     div3.appendChild(a)
                     div3.className = "icons-consultas"
 
