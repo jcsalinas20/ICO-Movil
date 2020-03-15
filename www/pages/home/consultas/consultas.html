@@ -32,10 +32,7 @@
         <!-- LLAMAR IFRAME DE PRECARGA DESDE AQUI AL HOME -->
 
         <script>
-            function getConsultas(token) {
-                query(token)
-            }
-            getConsultas(
+            getItems(
                 window.parent.document.getElementById("token").innerHTML
             )
         </script>
@@ -67,18 +64,7 @@
                     Consultas
                 </div>
                 <div class="collapsible-body">
-                    <ul class="collection with-header">
-                        <li class="collection-item container-lista">
-                            <div class="icons-consultas">
-                                <i style="vertical-align: middle;" class="material-icons">send</i>
-                            </div>
-                            <div style="width: 80%;margin: auto;text-align: center;">
-                                Alvin
-                            </div>
-                            <div class="icons-consultas">
-                                <i  style="vertical-align: middle;" class="material-icons">send</i>
-                            </div>
-                        </li>
+                    <ul id="historial-consultas" class="collection with-header">
                     </ul>
                 </div>
             </li>
