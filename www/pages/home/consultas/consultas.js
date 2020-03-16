@@ -56,9 +56,9 @@ var queryHistorialConsultas = function callQuery(token) {
                     div3.className = "icons-consultas"
 
                     if (con.asistido) {
-                        li.style.backgroundColor = "#6aff6a91"
+                        li.style.backgroundColor = "#AFA"
                     } else {
-                        li.style.backgroundColor = "#ff2f2f91"
+                        li.style.backgroundColor = "#FF8989"
                     }
                     li.appendChild(div1)
                     li.appendChild(div2)
@@ -130,7 +130,7 @@ var queryConsultas = function callQuery(token) {
                     div3.className = "icons-consultas"
 
                     if (comprobarHora(con.hora, con.dia)) {
-                        li.style.backgroundColor = "#ffa50091"
+                        li.style.backgroundColor = "#FFCC6E"
                     }
 
                     li.appendChild(div1)
