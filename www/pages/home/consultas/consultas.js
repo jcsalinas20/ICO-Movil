@@ -52,7 +52,6 @@ var queryHistorialConsultas = function callQuery(token) {
                     })
                     a.appendChild(i2)
                     a.className = "secondary-content"
-                    // a.href = "#" + j
                     div3.appendChild(a)
                     div3.className = "icons-consultas"
 
@@ -127,7 +126,6 @@ var queryConsultas = function callQuery(token) {
                     })
                     a.appendChild(i2)
                     a.className = "secondary-content"
-                    // a.href = "#" + j
                     div3.appendChild(a)
                     div3.className = "icons-consultas"
 
@@ -193,7 +191,7 @@ function comprobarHora(hora, dia) {
         if (horaActual > hora) {
             return true
         }
-        return false
+        return true
     }
     return false
 }
