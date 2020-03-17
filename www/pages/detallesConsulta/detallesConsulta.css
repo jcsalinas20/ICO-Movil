@@ -13,7 +13,7 @@ body {
 .container-datos {
     background-color: #f3f3f3;
     padding: 10px 20px;
-    margin: 0px 15px;
+    margin: 0px 15px 30px 15px;
     display: flex;
     flex-flow: row wrap;
     box-shadow: inset 0 0 4px black;
@@ -30,6 +30,25 @@ body {
     text-align: right;
     font-size: 15px;
     margin: 0 auto;
+}
+
+#nombre_hospital {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+}
+
+#direccion {
+    width: 100%;
+    text-align: left;
+    font-size: 15px;
+    margin: 0 auto;
+}
+
+#dia-hora {
+    width: 100%;
+    font-size: 20px;
+    margin: 5px 0;
 }
 
 #sala {
@@ -52,6 +71,20 @@ body {
     border: 1px solid black;
     margin: 0;
     font-size: 13px;
-    height: 100px;
+    height: 150px;
     overflow-y: scroll;
+}
+
+.mapouter {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
 }

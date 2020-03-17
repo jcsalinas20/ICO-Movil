@@ -35,43 +35,45 @@
             <h1 id="titleMenu">Consulta</h1>
         </header>
 
-        <h4 class="textoNormal center margin-top-header">Doctor</h4>
+        <div class="textoNormal container-datos margin-top-header">
+            <p class="center" id="dia-hora">
+                <b>Día:</b> 20-04-2020 - <b>Hora:</b> 16:00
+            </p>
+        </div>
+
+        <h4 class="textoNormal center">Doctor</h4>
         <div class="textoNormal container-datos">
             <p id="nombre_doc"><b>Nombre:</b> Carlos Salinas Navarrete</p>
             <p id="planta"><b>Planta:</b> 4</p>
             <p id="sala"><b>Sala:</b> 2</p>
-            <p class="notas"><b>Notas:</b></p>
-            <div>
-                <p class="notas-container" id="nota_paciente">
+            <p class="notas"><b>Nota del Doctor:</b></p>
+            <div style="margin-bottom: 12px;">
+                <p class="notas-container" id="nota">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Perspiciatis, est? Voluptas, ad! Ullam, officiis inventore
                     mollitia facilis fugit quas illum id commodi enim obcaecati
                     animi accusamus cumque voluptas, deserunt laudantium.
                 </p>
             </div>
-            <p class="notas"><b>Nota del Doctor:</b></p>
-            <div style="margin-bottom: 20px;">
-                <p class="notas-container" id="nota_doc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Omnis sed numquam ipsum doloremque, ad voluptates, itaque
-                    necessitatibus dignissimos temporibus maiores ea nisi porro
-                    vel et perferendis repellendus aperiam esse aut. Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Adipisci neque
-                    optio voluptates, deserunt unde expedita nisi voluptatem
-                    consectetur. Quasi blanditiis fugit sunt sed id molestiae
-                    magni accusamus cumque laudantium hic. Lorem ipsum dolor sit
-                    amet consectetur adipisicing elit. Perspiciatis, est?
-                    Voluptas, ad! Ullam, officiis inventore mollitia facilis
-                    fugit quas illum id commodi enim obcaecati animi accusamus
-                    cumque voluptas, deserunt laudantium.
-                </p>
-            </div>
         </div>
+
         <h4 class="textoNormal center">Hospital</h4>
         <div class="textoNormal container-datos">
-            <p id="nombre_hospital">Hospital: ICO</p>
-            <p id="direccion">Direccion mi casa</p>
-            <!-- Poner Google Maps -->
+            <p id="nombre_hospital"><b>Nombre:</b> ICO</p>
+            <p id="direccion"><b>Direccion:</b> mi casa</p>
+            <div class="mapouter" style="margin-bottom: 10px;">
+                <div class="gmap_canvas">
+                    <iframe
+                        width="100%"
+                        height="300"
+                        id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=Hospital Duran i Reynals&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0"
+                        marginheight="0"
+                        marginwidth="0"
+                    >
+                </div>
+            </div>
         </div>
 
         <script src="../../js/index.js"></script>

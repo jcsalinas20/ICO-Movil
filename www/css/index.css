@@ -33,7 +33,7 @@ header {
 }
 
 .margin-top-header {
-    margin-top: 20%;
+    margin-top: 20% !important;
 }
 
 body {
@@ -54,6 +54,8 @@ body {
     padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
     text-transform: uppercase;
     width: 100%;
+    position: absolute;
+    top: 0;
 }
 
 /* Portrait layout (default) */
