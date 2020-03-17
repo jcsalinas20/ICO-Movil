@@ -38,7 +38,6 @@ function getItems(token) {
     queryMedicamentos(token)
 }
 
-const input = document.createElement("input")
 var queryMedicamentos = async function callQuery(token) {
     var URL
     if (token == "") {
@@ -70,6 +69,7 @@ var queryMedicamentos = async function callQuery(token) {
                         var div3 = document.createElement("div")
                         var div4 = document.createElement("div")
                         var label = document.createElement("label")
+                        const input = document.createElement("input")
                         var span1 = document.createElement("span")
                         var span2 = document.createElement("span")
 
@@ -152,7 +152,9 @@ var queryMedicamentos = async function callQuery(token) {
         })
         .fail(function() {
             // LLAMAR AL METODO DEL PADRE
-            window.parent.activateToast("No se pudo establecer conexión con el servidor")
+            window.parent.activateToast(
+                "No se pudo establecer conexión con el servidor"
+            )
         })
 }
 
@@ -201,9 +203,7 @@ function getHora(date) {
 }
 
 async function cambioEstado(checked, id, hora, li, input, token) {
-    if (input.disabled) {
-        // window.parent.activateToast('El botón está deshabilitado.')
-    } else {
+    if (!input.disabled) {
         if (checked) {
             estado = false
             li.style.backgroundColor = "#FF8989"
@@ -218,27 +218,25 @@ async function cambioEstado(checked, id, hora, li, input, token) {
             URL = `https://api-ico.herokuapp.com/api/${token}/cambioEstadoPastilla/${id}/${hora}/${estado}`
         }
 
-        input.disabled = true
+        // input.disabled = true
         await $.ajax({
             type: "GET",
             url: URL,
             crossDomain: true,
             dataType: "json"
         })
-            .done(function(res) {
-                if (res) {
-                }
-            })
+            .done(function(res) {})
             .fail(function() {
                 // LLAMAR AL METODO DEL PADRE
-                window.parent.activateToast("No se pudo establecer conexión con el servidor")
+                window.parent.activateToast(
+                    "No se pudo establecer conexión con el servidor"
+                )
             })
-        await sleep2(2000, input)
-        input.disabled = false
+        await sleep2(2000)
     }
 }
 
-function sleep2(ms, input) {
+function sleep2(ms) {
     return new Promise(resolve => {
         setTimeout(resolve, ms)
     })

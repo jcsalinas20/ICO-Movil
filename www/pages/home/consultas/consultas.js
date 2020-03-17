@@ -77,6 +77,7 @@ var queryHistorialConsultas = function callQuery(token) {
         })
 }
 
+let consultasPendientes = []
 var queryConsultas = function callQuery(token) {
     var URL
     if (token == "") {
@@ -95,6 +96,7 @@ var queryConsultas = function callQuery(token) {
             if (res) {
                 var parent = document.getElementById("consultas")
                 parent.innerHTML = ""
+                consultasPendientes = res.consultas
                 for (let j = 0; j < res.consultas.length; j++) {
                     var con = res.consultas[j]
                     var li = document.createElement("li")
@@ -140,7 +142,7 @@ var queryConsultas = function callQuery(token) {
                     li.className = "collection-item container-lista"
                     parent.appendChild(li)
                 }
-                await sleep(60000) // 1 minuto
+                await sleep(6000) // 1 minuto
                 queryConsultas(token)
             }
         })
@@ -157,7 +159,7 @@ function sleep(ms) {
 }
 
 function mostrarConsulta(index) {
-    console.log(index)
+    console.log(consultasPendientes[index])
 }
 
 function comprobarHora(hora, dia) {

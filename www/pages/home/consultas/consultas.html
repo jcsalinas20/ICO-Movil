@@ -29,19 +29,14 @@
     </head>
 
     <body>
-        <!-- LLAMAR IFRAME DE PRECARGA DESDE AQUI AL HOME -->
-
         <script>
-            getItems(
-                window.parent.document.getElementById("token").innerHTML
-            )
+            getItems(window.parent.document.getElementById("token").innerHTML)
         </script>
 
         <header>
-            <div>
-                <h1 id="titleConsultas">CONSULTAS</h1>
-            </div>
+            <h1 id="titleMenu">CONSULTAS</h1>
         </header>
+
         <ul class="collapsible popout" style="margin-top: 15%;">
             <li class="active">
                 <div
@@ -51,7 +46,10 @@
                     <i class="material-icons medium">assignment_ind</i>Consultas
                     pendientes
                 </div>
-                <div class="collapsible-body" style="background-color: #42a6dc;">
+                <div
+                    class="collapsible-body"
+                    style="background-color: #42a6dc;"
+                >
                     <ul id="consultas" class="collection with-header"></ul>
                 </div>
             </li>
@@ -63,9 +61,14 @@
                     <i class="material-icons">assignment</i>Historial de
                     Consultas
                 </div>
-                <div class="collapsible-body" style="background-color: #42a6dc;">
-                    <ul id="historial-consultas" class="collection with-header">
-                    </ul>
+                <div
+                    class="collapsible-body"
+                    style="background-color: #42a6dc;"
+                >
+                    <ul
+                        id="historial-consultas"
+                        class="collection with-header"
+                    ></ul>
                 </div>
             </li>
         </ul>

@@ -21,6 +21,12 @@
     /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+header {
+    background-color: white;
+    padding: 5px;
+    box-shadow: 0 0 5px black;
+}
+
 body {
     -webkit-touch-callout: none;
     /* prevent callout to copy image, etc when tap to hold */
