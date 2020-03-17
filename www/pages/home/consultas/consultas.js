@@ -3,6 +3,9 @@ function getItems(token) {
     queryHistorialConsultas(token)
 }
 
+let consultasPendientes = []
+let historialConsultas = []
+
 var queryHistorialConsultas = function callQuery(token) {
     var URL
     if (token == "") {
@@ -21,6 +24,7 @@ var queryHistorialConsultas = function callQuery(token) {
             if (res) {
                 var parent = document.getElementById("historial-consultas")
                 parent.innerHTML = ""
+                historialConsultas = res.historial_consultas
                 for (let j = 0; j < res.historial_consultas.length; j++) {
                     var con = res.historial_consultas[j]
                     var li = document.createElement("li")
@@ -48,7 +52,7 @@ var queryHistorialConsultas = function callQuery(token) {
                     i2.style.verticalAlign = "middle"
                     i2.className = "material-icons"
                     i2.addEventListener("click", function() {
-                        mostrarConsulta(j)
+                        mostrarConsulta(j, "historial")
                     })
                     a.appendChild(i2)
                     a.className = "secondary-content"
@@ -77,7 +81,6 @@ var queryHistorialConsultas = function callQuery(token) {
         })
 }
 
-let consultasPendientes = []
 var queryConsultas = function callQuery(token) {
     var URL
     if (token == "") {
@@ -124,7 +127,7 @@ var queryConsultas = function callQuery(token) {
                     i2.style.verticalAlign = "middle"
                     i2.className = "material-icons"
                     i2.addEventListener("click", function() {
-                        mostrarConsulta(j)
+                        mostrarConsulta(j, "pendientes")
                     })
                     a.appendChild(i2)
                     a.className = "secondary-content"
@@ -158,8 +161,56 @@ function sleep(ms) {
     })
 }
 
-function mostrarConsulta(index) {
-    console.log(consultasPendientes[index])
+function mostrarConsulta(index, mostrar) {
+    var consulta = {}
+    if (mostrar === "pendientes") {
+        consulta = consultasPendientes[index]
+    } else {
+        consulta = historialConsultas[index]
+    }
+    console.log(consulta)
+    window.parent.document
+        .getElementById("frameConsultaPendiente")
+        .contentWindow.document.getElementById(
+            "dia-hora"
+        ).innerHTML = `<b>Día:</b> ${consulta.dia} - <b>Hora:</b> ${consulta.hora}`
+    window.parent.document
+        .getElementById("frameConsultaPendiente")
+        .contentWindow.document.getElementById(
+            "nombre_doc"
+        ).innerHTML = `<b>Nombre:</b> ${consulta.doctor}`
+    window.parent.document
+        .getElementById("frameConsultaPendiente")
+        .contentWindow.document.getElementById(
+            "planta"
+        ).innerHTML = `<b>Planta:</b> ${consulta.planta}`
+    window.parent.document
+        .getElementById("frameConsultaPendiente")
+        .contentWindow.document.getElementById(
+            "sala"
+        ).innerHTML = `<b>Sala:</b> ${consulta.sala}`
+    window.parent.document
+        .getElementById("frameConsultaPendiente")
+        .contentWindow.document.getElementById("nota").innerHTML =
+        consulta.notas
+    window.parent.document
+        .getElementById("frameConsultaPendiente")
+        .contentWindow.document.getElementById(
+            "nombre_hospital"
+        ).innerHTML = `<b>Nombre:</b> ${consulta.nombre_hospital}`
+    window.parent.document
+        .getElementById("frameConsultaPendiente")
+        .contentWindow.document.getElementById(
+            "direccion"
+        ).innerHTML = `<b>Direccion:</b> ${consulta.direccion}`
+    window.parent.document
+        .getElementById("frameConsultaPendiente")
+        .contentWindow.document.getElementById(
+            "gmap_canvas"
+        ).src = `https://maps.google.com/maps?q=${consulta.direccion}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+    window.parent.document.getElementById(
+        "frameConsultaPendiente"
+    ).style.display = "flex"
 }
 
 function comprobarHora(hora, dia) {
