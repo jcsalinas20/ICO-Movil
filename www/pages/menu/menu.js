@@ -1,16 +1,72 @@
 function mostrarHome() {
-    console.log('frfrfe')
     ocultarMostrarMenu()
-    window.parent.document.getElementById('frameConsultaPendiente').style.display = 'none'
+    window.parent.document.getElementById(
+        "frameConsultaPendiente"
+    ).style.display = "none"
     // window.parent.document.getElementById('frameConsultaPendiente').style.display = 'none'
     // window.parent.document.getElementById('').style.display = 'none'
     // window.parent.document.getElementById('').style.display = 'none'
     // window.parent.document.getElementById('').style.display = 'none'
     // window.parent.document.getElementById('').style.display = 'none'
-    window.parent.document.body.style.display = 'flex'
+    window.parent.document.body.style.display = "flex"
 }
 
-function mostrarHome() {}
+async function mostrarPerfil() {
+    ocultarMostrarMenu()
+    const token = window.parent.document.getElementById("token").innerHTML
+    var URL
+    if (token == "") {
+        URL = `https://api-ico.herokuapp.com/api/null/perfil`
+    } else {
+        URL = `https://api-ico.herokuapp.com/api/${token}/perfil`
+    }
+
+    await $.ajax({
+        type: "GET",
+        url: URL,
+        crossDomain: true,
+        dataType: "json"
+    })
+        .done(async function(res) {
+            if (res) {
+                window.parent.document
+                    .getElementById("framePerfil")
+                    .contentWindow.document.getElementById("foto-perfil").src =
+                    res.foto
+                window.parent.document
+                    .getElementById("framePerfil")
+                    .contentWindow.document.getElementById("nombre").innerHTML =
+                    res.nombre
+                window.parent.document
+                    .getElementById("framePerfil")
+                    .contentWindow.document.getElementById("fecha").innerHTML =
+                    `<b>Fecha Nacimiento:</b> ${res.fecha_nacimiento}`
+                window.parent.document
+                    .getElementById("framePerfil")
+                    .contentWindow.document.getElementById("dni").innerHTML =
+                    `<b>DNI:</b> ${res.dni}`
+                window.parent.document
+                    .getElementById("framePerfil")
+                    .contentWindow.document.getElementById("genero").innerHTML =
+                    `<b>Genero:</b> ${res.genero}`
+                window.parent.document
+                    .getElementById("framePerfil")
+                    .contentWindow.document.getElementById("consultasP").innerHTML =
+                    `<b>Consultas pendientes:</b> ${res.consultasCount}`
+                window.parent.document
+                    .getElementById("framePerfil")
+                    .contentWindow.document.getElementById("consultasH").innerHTML =
+                    `<b>Historial consultas:</b> ${res.historialConsultasCount}`
+            }
+        })
+        .fail(function() {
+            // LLAMAR AL METODO DEL PADRE
+            window.parent.activateToast(
+                "No se pudo establecer conexión con el servidor"
+            )
+        })
+    window.parent.document.getElementById("framePerfil").style.display = "flex"
+}
 
 function mostrarHome() {}
 

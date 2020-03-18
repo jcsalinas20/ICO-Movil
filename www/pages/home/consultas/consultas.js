@@ -168,7 +168,6 @@ function mostrarConsulta(index, mostrar) {
     } else {
         consulta = historialConsultas[index]
     }
-    console.log(consulta)
     window.parent.document
         .getElementById("frameConsultaPendiente")
         .contentWindow.document.getElementById(
