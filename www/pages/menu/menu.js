@@ -3,12 +3,8 @@ function mostrarHome() {
     window.parent.document.getElementById(
         "frameConsultaPendiente"
     ).style.display = "none"
-    window.parent.document.getElementById(
-        "frameAyuda"
-    ).style.display = "none"
-    window.parent.document.getElementById(
-        "framePerfil"
-    ).style.display = "none"
+    window.parent.document.getElementById("frameAyuda").style.display = "none"
+    window.parent.document.getElementById("framePerfil").style.display = "none"
 }
 
 async function mostrarPerfil() {
@@ -39,24 +35,29 @@ async function mostrarPerfil() {
                     res.nombre
                 window.parent.document
                     .getElementById("framePerfil")
-                    .contentWindow.document.getElementById("fecha").innerHTML =
-                    `<b>Fecha Nacimiento:</b> ${res.fecha_nacimiento}`
+                    .contentWindow.document.getElementById(
+                        "fecha"
+                    ).innerHTML = `<b>Fecha Nacimiento:</b> ${res.fecha_nacimiento}`
                 window.parent.document
                     .getElementById("framePerfil")
-                    .contentWindow.document.getElementById("dni").innerHTML =
-                    `<b>DNI:</b> ${res.dni}`
+                    .contentWindow.document.getElementById(
+                        "dni"
+                    ).innerHTML = `<b>DNI:</b> ${res.dni}`
                 window.parent.document
                     .getElementById("framePerfil")
-                    .contentWindow.document.getElementById("genero").innerHTML =
-                    `<b>Genero:</b> ${res.genero}`
+                    .contentWindow.document.getElementById(
+                        "genero"
+                    ).innerHTML = `<b>Genero:</b> ${res.genero}`
                 window.parent.document
                     .getElementById("framePerfil")
-                    .contentWindow.document.getElementById("consultasP").innerHTML =
-                    `<b>Consultas pendientes:</b> ${res.consultasCount}`
+                    .contentWindow.document.getElementById(
+                        "consultasP"
+                    ).innerHTML = `<b>Consultas pendientes:</b> ${res.consultasCount}`
                 window.parent.document
                     .getElementById("framePerfil")
-                    .contentWindow.document.getElementById("consultasH").innerHTML =
-                    `<b>Historial consultas:</b> ${res.historialConsultasCount}`
+                    .contentWindow.document.getElementById(
+                        "consultasH"
+                    ).innerHTML = `<b>Historial consultas:</b> ${res.historialConsultasCount}`
             }
         })
         .fail(function() {
@@ -66,11 +67,19 @@ async function mostrarPerfil() {
             )
         })
     window.parent.document.getElementById("framePerfil").style.display = "flex"
+    window.parent.document.getElementById(
+        "frameConsultaPendiente"
+    ).style.display = "none"
+    window.parent.document.getElementById("frameAyuda").style.display = "none"
 }
 
 function mostrarAyuda() {
     ocultarMostrarMenu()
     window.parent.document.getElementById("frameAyuda").style.display = "flex"
+    window.parent.document.getElementById(
+        "frameConsultaPendiente"
+    ).style.display = "none"
+    window.parent.document.getElementById("framePerfil").style.display = "none"
 }
 
 function ocultarMostrarMenu() {
