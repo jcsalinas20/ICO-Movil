@@ -3,12 +3,12 @@ function mostrarHome() {
     window.parent.document.getElementById(
         "frameConsultaPendiente"
     ).style.display = "none"
-    // window.parent.document.getElementById('frameConsultaPendiente').style.display = 'none'
-    // window.parent.document.getElementById('').style.display = 'none'
-    // window.parent.document.getElementById('').style.display = 'none'
-    // window.parent.document.getElementById('').style.display = 'none'
-    // window.parent.document.getElementById('').style.display = 'none'
-    window.parent.document.body.style.display = "flex"
+    window.parent.document.getElementById(
+        "frameAyuda"
+    ).style.display = "none"
+    window.parent.document.getElementById(
+        "framePerfil"
+    ).style.display = "none"
 }
 
 async function mostrarPerfil() {
@@ -68,7 +68,10 @@ async function mostrarPerfil() {
     window.parent.document.getElementById("framePerfil").style.display = "flex"
 }
 
-function mostrarHome() {}
+function mostrarAyuda() {
+    ocultarMostrarMenu()
+    window.parent.document.getElementById("frameAyuda").style.display = "flex"
+}
 
 function ocultarMostrarMenu() {
     var circle = document.getElementById("circulo")
