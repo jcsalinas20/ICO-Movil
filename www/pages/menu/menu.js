@@ -4,6 +4,8 @@ function mostrarHome() {
         "frameConsultaPendiente"
     ).style.display = "none"
     window.parent.document.getElementById("frameAyuda").style.display = "none"
+    window.parent.document.getElementById('frameNoticia').style.display = 'none'
+    window.parent.document.getElementById('menuNoticia').style.display = 'none'
     window.parent.document.getElementById("framePerfil").style.display = "none"
 }
 
@@ -70,6 +72,8 @@ async function mostrarPerfil() {
     window.parent.document.getElementById(
         "frameConsultaPendiente"
     ).style.display = "none"
+    window.parent.document.getElementById('frameNoticia').style.display = 'none'
+    window.parent.document.getElementById('menuNoticia').style.display = 'none'
     window.parent.document.getElementById("frameAyuda").style.display = "none"
 }
 
@@ -79,6 +83,8 @@ function mostrarAyuda() {
     window.parent.document.getElementById(
         "frameConsultaPendiente"
     ).style.display = "none"
+    window.parent.document.getElementById("frameNoticia").style.display = "none"
+    window.parent.document.getElementById("menuNoticia").style.display = "none"
     window.parent.document.getElementById("framePerfil").style.display = "none"
 }
 

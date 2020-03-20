@@ -13,12 +13,16 @@
             crossorigin="anonymous"
         ></script>
         <!--Import Google Icon Font-->
-        <link href="../../css/icon.css" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
         <!--Import materialize.css-->
         <link rel="stylesheet" href=".././../css/materialize.min.css" />
         <script src="home.js"></script>
         <!--CSS DEL HOME-->
         <link rel="stylesheet" href="./home.css" />
+        <link rel="stylesheet" href="../../css/index.css" />
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style>
@@ -102,6 +106,20 @@
             frameborder="0"
             id="frameAyuda"
             src="../ayuda/ayuda.html"
+        >
+        </iframe>
+        <!-- IFrame para mostrar la pantalla de Noticai -->
+        <header style="z-index: 2;position: absolute;display: none;" id="menuNoticia">
+            <i class="material-icons close" onclick="ocultarVentana()">close</i>
+            <h1 id="titleMenu">NOTICIA</h1>
+        </header>
+        <iframe
+            width="100%"
+            height="92%"
+            style="z-index: 2; position: fixed;display: none;bottom: 0;"
+            frameborder="0"
+            id="frameNoticia"
+            src=""
         >
         </iframe>
 

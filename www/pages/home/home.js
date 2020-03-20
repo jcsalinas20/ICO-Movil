@@ -49,3 +49,8 @@ function activateToast(mensaje) {
         html: mensaje
     })
 }
+
+function ocultarVentana() {
+    window.parent.document.getElementById('frameNoticia').style.display = 'none'
+    window.parent.document.getElementById('menuNoticia').style.display = 'none'
+}

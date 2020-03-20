@@ -46,3 +46,11 @@
     right: 0;
     top: 0;
 }
+
+.close {
+    position: fixed;
+    top: 7px;
+    left: 10px;
+    font-size: 40px;
+    cursor: pointer;
+}
