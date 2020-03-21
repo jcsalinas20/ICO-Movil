@@ -1,4 +1,4 @@
-const numMaxPasos = 7
+const numMaxPasos = 9
 const numMinPasos = 1
 
 function siguientePaso() {
@@ -8,6 +8,8 @@ function siguientePaso() {
     if (index <= numMaxPasos) {
         document.getElementById(index - 1).classList = "bolas"
         document.getElementById(index).classList = "bolas activated"
+        document.getElementById("frameBody").src =
+            "./pasos/paso" + index + ".html"
     }
 }
 
@@ -18,6 +20,8 @@ function anteriorPaso() {
     if (index >= numMinPasos) {
         document.getElementById(index + 1).classList = "bolas"
         document.getElementById(index).classList = "bolas activated"
+        document.getElementById("frameBody").src =
+            "./pasos/paso" + index + ".html"
     }
 }
 
