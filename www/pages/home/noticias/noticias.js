@@ -52,6 +52,7 @@ function getNoticias() {
                     div1.appendChild(div3)
                     parent.appendChild(div1)
                 }
+                window.parent.document.getElementById('frame-preload').style.display = 'none'
             }
         })
         .fail(function() {
@@ -72,4 +73,10 @@ function sleep(ms) {
     return new Promise(resolve => {
         setTimeout(resolve, ms)
     })
+}
+
+function updateNews() {
+    window.parent.document.getElementById("frame-preload").contentWindow.document.getElementById('mensaje').innerHTML = 'Actualizando las noticias.'
+    window.parent.document.getElementById('frame-preload').style.display = 'flex'
+    getNoticias()
 }

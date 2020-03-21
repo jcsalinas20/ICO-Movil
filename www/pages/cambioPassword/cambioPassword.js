@@ -33,13 +33,13 @@ function comprobarPassword() {
     return false
 }
 
-function cambioPasswod(user) {
+function cambioPasswod(token) {
     if (comprobarPassword()) {
         window.parent.document.getElementById("frame-preload").contentWindow.document.getElementById('mensaje').innerHTML = 'Cambiando la contraseña.'
         window.parent.document.getElementById("frame-preload").style.display = "block"
         var pass = document.getElementById("pass").value
         $.ajax({
-                url: `https://api-ico.herokuapp.com/api/${user}/cambio-password/${pass}`,
+                url: `https://api-ico.herokuapp.com/api/${token}/cambio-password/${pass}`,
                 crossDomain: true,
                 dataType: "json"
             })
