@@ -60,4 +60,6 @@ function ocultarPopUp() {
     window.parent.document.getElementById('container-frame-cambio-password').style.display = 'none'
     window.parent.activateToast('Contraseña actualizada correctamente.')
     window.parent.document.getElementById("frame-preload").style.display = "none"
+    window.parent.document.getElementById("frame-guia").contentWindow.document.getElementById('frameBody').src = 'pasos/paso1.html'
+    window.parent.document.getElementById("container-frame-guia").style.display = "flex"
 }

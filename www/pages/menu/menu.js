@@ -4,8 +4,8 @@ function mostrarHome() {
         "frameConsultaPendiente"
     ).style.display = "none"
     window.parent.document.getElementById("frameAyuda").style.display = "none"
-    window.parent.document.getElementById('frameNoticia').style.display = 'none'
-    window.parent.document.getElementById('menuNoticia').style.display = 'none'
+    window.parent.document.getElementById("frameNoticia").style.display = "none"
+    window.parent.document.getElementById("menuNoticia").style.display = "none"
     window.parent.document.getElementById("framePerfil").style.display = "none"
 }
 
@@ -15,10 +15,27 @@ function mostrarGuia() {
         "frameConsultaPendiente"
     ).style.display = "none"
     window.parent.document.getElementById("frameAyuda").style.display = "none"
-    window.parent.document.getElementById('frameNoticia').style.display = 'none'
-    window.parent.document.getElementById('menuNoticia').style.display = 'none'
+    window.parent.document.getElementById("frameNoticia").style.display = "none"
+    window.parent.document.getElementById("menuNoticia").style.display = "none"
     window.parent.document.getElementById("framePerfil").style.display = "none"
-    window.parent.document.getElementById('container-frame-guia').style.display = 'flex'
+    window.parent.document
+        .getElementById("frame-guia")
+        .contentWindow.document.getElementById("frameBody").src =
+        "pasos/paso1.html"
+    const index = window.parent.document
+        .getElementById("frame-guia")
+        .contentWindow.document.getElementsByClassName("activated")[0].id
+
+    window.parent.document
+        .getElementById("frame-guia")
+        .contentWindow.document.getElementById(index).classList = "bolas"
+    window.parent.document
+        .getElementById("frame-guia")
+        .contentWindow.document.getElementById('1').classList =
+        "bolas activated"
+    window.parent.document.getElementById(
+        "container-frame-guia"
+    ).style.display = "flex"
 }
 
 async function mostrarPerfil() {
@@ -84,8 +101,8 @@ async function mostrarPerfil() {
     window.parent.document.getElementById(
         "frameConsultaPendiente"
     ).style.display = "none"
-    window.parent.document.getElementById('frameNoticia').style.display = 'none'
-    window.parent.document.getElementById('menuNoticia').style.display = 'none'
+    window.parent.document.getElementById("frameNoticia").style.display = "none"
+    window.parent.document.getElementById("menuNoticia").style.display = "none"
     window.parent.document.getElementById("frameAyuda").style.display = "none"
 }
 
