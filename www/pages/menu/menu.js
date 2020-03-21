@@ -9,6 +9,18 @@ function mostrarHome() {
     window.parent.document.getElementById("framePerfil").style.display = "none"
 }
 
+function mostrarGuia() {
+    ocultarMostrarMenu()
+    window.parent.document.getElementById(
+        "frameConsultaPendiente"
+    ).style.display = "none"
+    window.parent.document.getElementById("frameAyuda").style.display = "none"
+    window.parent.document.getElementById('frameNoticia').style.display = 'none'
+    window.parent.document.getElementById('menuNoticia').style.display = 'none'
+    window.parent.document.getElementById("framePerfil").style.display = "none"
+    window.parent.document.getElementById('container-frame-guia').style.display = 'flex'
+}
+
 async function mostrarPerfil() {
     ocultarMostrarMenu()
     const token = window.parent.document.getElementById("token").innerHTML
