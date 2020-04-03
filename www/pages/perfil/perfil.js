@@ -30,3 +30,7 @@ function cerrarSesion() {
             activateToast("No se pudo establecer conexión con el servidor")
         })
 }
+
+function cambiarIdioma() {
+    window.parent.document.getElementById('container-frame-idioma').style.display = 'flex'
+}
