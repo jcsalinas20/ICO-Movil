@@ -17,57 +17,62 @@
  * under the License.
  */
 
-$(document).ready(function () {
+$(document).ready(function() {
     $("#submit").click(authLogin)
 
-    $('.tabs').tabs()
+    $(".tabs").tabs()
 })
 
 function authLogin() {
-    var user = document.getElementById("user").value
-    getEncryptPass(user, document.getElementById("pass").value)
-}
+    document
+        .getElementById("frame-preload")
+        .contentWindow.document.getElementById("mensaje").innerHTML =
+        "Comprobando la autenticación del usuario."
+    document.getElementById("frame-preload").style.display = "block"
 
-function getEncryptPass(user, pass) {
-    $.ajax({
-            method: "GET",
-            url: "https://api-ico.herokuapp.com/api/encrypt/" + pass,
-            dataType: "json" // necessitem això pq ens retorni un objecte JSON
-        })
-        .done(function (msg) {
-            console.log(msg.password)
-            login(user, msg.password)
-        })
-        .fail(function () {
-            alert("ERROR")
-        })
+    var input = $("#user")
+    letras = input.val().replace("/", "")
+    input.val(letras)
+
+    var input = $("#pass")
+    letras = input.val().replace("/", "")
+    input.val(letras)
+
+    login(
+        document.getElementById("user").value,
+        document.getElementById("pass").value
+    )
 }
 
 function login(user, pass) {
     $.ajax({
-            method: "GET",
-            url: "https://api-ico.herokuapp.com/api/paciente/auth/" +
-                user +
-                "/" +
-                pass,
-            dataType: "json" // necessitem això pq ens retorni un objecte JSON
-        })
-        .done(function (msg) {
+        type: "GET",
+        url: `https://api-ico.herokuapp.com/api/paciente/auth/${user}/${pass}`,
+        crossDomain: true,
+        dataType: "json"
+    })
+        .done(function(msg) {
+            localStorage.setItem("jwt", "uihfoerifhoerifhuoerh")
+            document.getElementById("frame-preload").style.display = "none"
             M.toast({
                 html: msg.mensaje
             })
             if (msg.mensaje === "El login se realizó correctamente.") {
-                location.href = "./pages/home/home.html"
+                localStorage.setItem("jwt", "uihfoerifhoerifhuoerh")
+                location.href = `./pages/home/home.html?token=${msg.token}`
             }
         })
-        .fail(function () {
-            alert("ERROR")
+        .fail(function() {
+            document.getElementById("frame-preload").style.display = "none"
+            M.toast({
+                html: "No se pudo establecer conexión con el servidor"
+            })
         })
 }
 
 var app = {
     // Application Constructor
-    initialize: function () {
+    initialize: function() {
         document.addEventListener(
             "deviceready",
             this.onDeviceReady.bind(this),
@@ -79,12 +84,12 @@ var app = {
     //
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
-    onDeviceReady: function () {
+    onDeviceReady: function() {
         this.receivedEvent("deviceready")
     },
 
     // Update DOM on a Received Event
-    receivedEvent: function (id) {
+    receivedEvent: function(id) {
         var parentElement = document.getElementById(id)
         var listeningElement = parentElement.querySelector(".listening")
         var receivedElement = parentElement.querySelector(".received")

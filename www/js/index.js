@@ -17,14 +17,38 @@
  * under the License.
  */
 
-$(document).ready(function () {
+$(document).ready(function() {
     $("#submit").click(authLogin)
 
     $(".tabs").tabs()
 })
 
+async function peticion(URL, token) {
+    await $.ajax({
+        type: "GET",
+        url: URL,
+        crossDomain: true,
+        dataType: "json"
+    })
+        .done(async function(res) {
+            if (res.mensaje === "ERROR, no se encontró el Paciente.") {
+                console.log(res.mensaje)
+                return
+            } else {
+                window.location.href = `./pages/home/home.html?token=${token}`
+                return
+            }
+        })
+        .fail(function() {
+            return false
+        })
+}
+
 function authLogin() {
-    document.getElementById("frame-preload").contentWindow.document.getElementById('mensaje').innerHTML = 'Comprobando la autenticación del usuario.'
+    document
+        .getElementById("frame-preload")
+        .contentWindow.document.getElementById("mensaje").innerHTML =
+        "Comprobando la autenticación del usuario."
     document.getElementById("frame-preload").style.display = "block"
 
     var input = $("#user")
@@ -43,31 +67,32 @@ function authLogin() {
 
 function login(user, pass) {
     $.ajax({
-            type: "GET",
-            url: `https://api-ico.herokuapp.com/api/paciente/auth/${user}/${pass}`,
-            crossDomain: true,
-            dataType: "json"
-        })
-        .done(function (msg) {
+        type: "GET",
+        url: `https://api-ico.herokuapp.com/api/paciente/auth/${user}/${pass}`,
+        crossDomain: true,
+        dataType: "json"
+    })
+        .done(function(msg) {
             document.getElementById("frame-preload").style.display = "none"
             M.toast({
                 html: msg.mensaje
             })
             if (msg.mensaje === "El login se realizó correctamente.") {
+                localStorage.setItem("jwt", msg.token)
                 location.href = `./pages/home/home.html?token=${msg.token}`
             }
         })
-        .fail(function () {
+        .fail(function() {
             document.getElementById("frame-preload").style.display = "none"
             M.toast({
-                html: 'No se pudo establecer conexión con el servidor'
+                html: "No se pudo establecer conexión con el servidor"
             })
         })
 }
 
 var app = {
     // Application Constructor
-    initialize: function () {
+    initialize: function() {
         document.addEventListener(
             "deviceready",
             this.onDeviceReady.bind(this),
@@ -79,12 +104,12 @@ var app = {
     //
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
-    onDeviceReady: function () {
+    onDeviceReady: function() {
         this.receivedEvent("deviceready")
     },
 
     // Update DOM on a Received Event
-    receivedEvent: function (id) {
+    receivedEvent: function(id) {
         var parentElement = document.getElementById(id)
         var listeningElement = parentElement.querySelector(".listening")
         var receivedElement = parentElement.querySelector(".received")

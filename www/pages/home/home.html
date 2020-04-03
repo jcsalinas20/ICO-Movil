@@ -37,6 +37,9 @@
                 }
             }
         </style>
+        <script>
+            authToken()
+        </script>
     </head>
 
     <body>
@@ -124,7 +127,10 @@
         >
         </iframe>
         <!-- IFrame para mostrar la pantalla de Noticai -->
-        <header style="z-index: 2;position: absolute;display: none;" id="menuNoticia">
+        <header
+            style="z-index: 2;position: absolute;display: none;"
+            id="menuNoticia"
+        >
             <i class="material-icons close" onclick="ocultarVentana()">close</i>
             <h1 id="titleMenu">NOTICIA</h1>
         </header>

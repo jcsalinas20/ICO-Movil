@@ -20,7 +20,6 @@ function cerrarSesion() {
     })
         .done(async function(res) {
             if (res) {
-                localStorage.removeItem('jwt')
                 window.parent.document.getElementById('frame-preload').style.display = 'none'
                 window.parent.location.href = './../../'
             }
