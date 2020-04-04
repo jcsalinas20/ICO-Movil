@@ -81,19 +81,5 @@
         <script src="js/index.js"></script>
         <!--JavaScript at end of body for optimized loading-->
         <script src="js/materialize.min.js"></script>
-        
-        <script>
-            if (localStorage.getItem("jwt")) {
-                const token = localStorage.getItem("jwt")
-                var URL
-                if (token == "") {
-                    URL = `https://api-ico.herokuapp.com/api/null/perfil`
-                } else {
-                    URL = `https://api-ico.herokuapp.com/api/${token}/perfil`
-                }
-
-                peticion(URL, token)
-            }
-        </script>
     </body>
 </html>
