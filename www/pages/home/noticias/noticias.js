@@ -32,7 +32,11 @@ function getNoticias() {
                     p.innerHTML = noticia.titulo
                     div6.appendChild(p)
                     div6.className = "card-content"
-                    a.innerHTML = "Ver Mas ↑"
+                    if (leng === "cat") {
+                        a.innerHTML = "Veure Més ↑"
+                    } else {
+                        a.innerHTML = "Ver Más ↑"
+                    }
                     a.addEventListener("click", function() {
                         mostrarNoticia(j)
                     })
@@ -52,7 +56,9 @@ function getNoticias() {
                     div1.appendChild(div3)
                     parent.appendChild(div1)
                 }
-                window.parent.document.getElementById('frame-preload').style.display = 'none'
+                window.parent.document.getElementById(
+                    "frame-preload"
+                ).style.display = "none"
             }
         })
         .fail(function() {
@@ -63,10 +69,10 @@ function getNoticias() {
 
 async function mostrarNoticia(i) {
     // HACER VISIBLE UN CLOSE
-    window.parent.document.getElementById('frameNoticia').src = links[i]
+    window.parent.document.getElementById("frameNoticia").src = links[i]
     await sleep(700)
-    window.parent.document.getElementById('frameNoticia').style.display = 'flex'
-    window.parent.document.getElementById('menuNoticia').style.display = 'block'
+    window.parent.document.getElementById("frameNoticia").style.display = "flex"
+    window.parent.document.getElementById("menuNoticia").style.display = "block"
 }
 
 function sleep(ms) {
@@ -76,7 +82,18 @@ function sleep(ms) {
 }
 
 function updateNews() {
-    window.parent.document.getElementById("frame-preload").contentWindow.document.getElementById('mensaje').innerHTML = 'Actualizando las noticias.'
-    window.parent.document.getElementById('frame-preload').style.display = 'flex'
+    if (leng === "cat") {
+        window.parent.document
+            .getElementById("frame-preload")
+            .contentWindow.document.getElementById("mensaje").innerHTML =
+            "Actualitzant les notícies."
+    } else {
+        window.parent.document
+            .getElementById("frame-preload")
+            .contentWindow.document.getElementById("mensaje").innerHTML =
+            "Actualizando las noticias."
+    }
+    window.parent.document.getElementById("frame-preload").style.display =
+        "flex"
     getNoticias()
 }

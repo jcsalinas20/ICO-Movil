@@ -42,11 +42,19 @@ var queryHistorialConsultas = function callQuery(token) {
                     div1.className = "icons-consultas"
 
                     div2.className = "text-consultas"
-                    div2.appendChild(
-                        document.createTextNode(
-                            "Día: " + con.dia + " - Hora: " + con.hora
+                    if (leng == "cat") {
+                        div2.appendChild(
+                            document.createTextNode(
+                                "Dia: " + con.dia + " - Hora: " + con.hora
+                            )
                         )
-                    )
+                    } else {
+                        div2.appendChild(
+                            document.createTextNode(
+                                "Día: " + con.dia + " - Hora: " + con.hora
+                            )
+                        )
+                    }
 
                     i2.appendChild(document.createTextNode("send"))
                     i2.style.verticalAlign = "middle"
@@ -117,11 +125,19 @@ var queryConsultas = function callQuery(token) {
                     div1.className = "icons-consultas"
 
                     div2.className = "text-consultas"
-                    div2.appendChild(
-                        document.createTextNode(
-                            "Día: " + con.dia + " - Hora: " + con.hora
+                    if (leng == "cat") {
+                        div2.appendChild(
+                            document.createTextNode(
+                                "Dia: " + con.dia + " - Hora: " + con.hora
+                            )
                         )
-                    )
+                    } else {
+                        div2.appendChild(
+                            document.createTextNode(
+                                "Día: " + con.dia + " - Hora: " + con.hora
+                            )
+                        )
+                    }
 
                     i2.appendChild(document.createTextNode("send"))
                     i2.style.verticalAlign = "middle"
@@ -168,40 +184,77 @@ function mostrarConsulta(index, mostrar) {
     } else {
         consulta = historialConsultas[index]
     }
-    window.parent.document
-        .getElementById("frameConsultaPendiente")
-        .contentWindow.document.getElementById(
-            "dia-hora"
-        ).innerHTML = `<b>Día:</b> ${consulta.dia} - <b>Hora:</b> ${consulta.hora}`
-    window.parent.document
-        .getElementById("frameConsultaPendiente")
-        .contentWindow.document.getElementById(
-            "nombre_doc"
-        ).innerHTML = `<b>Nombre:</b> ${consulta.doctor}`
-    window.parent.document
-        .getElementById("frameConsultaPendiente")
-        .contentWindow.document.getElementById(
-            "planta"
-        ).innerHTML = `<b>Planta:</b> ${consulta.planta}`
-    window.parent.document
-        .getElementById("frameConsultaPendiente")
-        .contentWindow.document.getElementById(
-            "sala"
-        ).innerHTML = `<b>Sala:</b> ${consulta.sala}`
-    window.parent.document
-        .getElementById("frameConsultaPendiente")
-        .contentWindow.document.getElementById("nota").innerHTML =
-        consulta.notas
-    window.parent.document
-        .getElementById("frameConsultaPendiente")
-        .contentWindow.document.getElementById(
-            "nombre_hospital"
-        ).innerHTML = `<b>Nombre:</b> ${consulta.nombre_hospital}`
-    window.parent.document
-        .getElementById("frameConsultaPendiente")
-        .contentWindow.document.getElementById(
-            "direccion"
-        ).innerHTML = `<b>Direccion:</b> ${consulta.direccion}`
+    if (leng === "cat") {
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById(
+                "dia-hora"
+            ).innerHTML = `<b>Dia:</b> ${consulta.dia} - <b>Hora:</b> ${consulta.hora}`
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById(
+                "nombre_doc"
+            ).innerHTML = `<b>Nom:</b> ${consulta.doctor}`
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById(
+                "planta"
+            ).innerHTML = `<b>Planta:</b> ${consulta.planta}`
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById(
+                "sala"
+            ).innerHTML = `<b>Sala:</b> ${consulta.sala}`
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById("nota").innerHTML =
+            consulta.notas
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById(
+                "nombre_hospital"
+            ).innerHTML = `<b>Nom:</b> ${consulta.nombre_hospital}`
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById(
+                "direccion"
+            ).innerHTML = `<b>Direcció:</b> ${consulta.direccion}`
+    } else {
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById(
+                "dia-hora"
+            ).innerHTML = `<b>Día:</b> ${consulta.dia} - <b>Hora:</b> ${consulta.hora}`
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById(
+                "nombre_doc"
+            ).innerHTML = `<b>Nombre:</b> ${consulta.doctor}`
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById(
+                "planta"
+            ).innerHTML = `<b>Planta:</b> ${consulta.planta}`
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById(
+                "sala"
+            ).innerHTML = `<b>Sala:</b> ${consulta.sala}`
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById("nota").innerHTML =
+            consulta.notas
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById(
+                "nombre_hospital"
+            ).innerHTML = `<b>Nombre:</b> ${consulta.nombre_hospital}`
+        window.parent.document
+            .getElementById("frameConsultaPendiente")
+            .contentWindow.document.getElementById(
+                "direccion"
+            ).innerHTML = `<b>Dirección:</b> ${consulta.direccion}`
+    }
     window.parent.document
         .getElementById("frameConsultaPendiente")
         .contentWindow.document.getElementById(

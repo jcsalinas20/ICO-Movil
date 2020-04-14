@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <script>
+            const leng = localStorage.getItem("leng")
+        </script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -106,6 +109,10 @@
                     )[0].style.right = "112px"
                 }
             })
+            
+            if (leng === "cat") {
+                document.getElementById("titleMenu").innerHTML = "pastilles"
+            }
         </script>
         <script src=".././../../js/index.js"></script>
         <!--JavaScript at end of body for optimized loading-->

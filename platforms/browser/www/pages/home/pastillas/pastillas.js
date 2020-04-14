@@ -10,26 +10,61 @@ function getDiaActual() {
         mes = "0" + mes
     }
     console.log()
-    document.getElementById(
-        "dia-actual"
-    ).innerHTML = `Día: <b id="dia">${dia}</b> - ${diaNum}/${mes}/${date.getFullYear()}`
+
+    if (leng === "cat") {
+        document.getElementById(
+            "dia-actual"
+        ).innerHTML = `Dia: <b id="dia">${dia}</b> - ${diaNum}/${mes}/${date.getFullYear()}`
+    } else {
+        document.getElementById(
+            "dia-actual"
+        ).innerHTML = `Día: <b id="dia">${dia}</b> - ${diaNum}/${mes}/${date.getFullYear()}`
+    }
 }
 
 function getNombreDia(dia) {
     if (dia == 0) {
-        return "Domingo"
+        if (leng === "cat") {
+            return "Diumenge"
+        } else {
+            return "Domingo"
+        }
     } else if (dia == 1) {
-        return "Lunes"
+        if (leng === "cat") {
+            return "Dilluns"
+        } else {
+            return "Lunes"
+        }
     } else if (dia == 2) {
-        return "Martes"
+        if (leng === "cat") {
+            return "Dimarts"
+        } else {
+            return "Martes"
+        }
     } else if (dia == 3) {
-        return "Miercoles"
+        if (leng === "cat") {
+            return "Dimecres"
+        } else {
+            return "Miércoles"
+        }
     } else if (dia == 4) {
-        return "Jueves"
+        if (leng === "cat") {
+            return "Dijous"
+        } else {
+            return "Jueves"
+        }
     } else if (dia == 5) {
-        return "Viernes"
+        if (leng == "cat") {
+            return "Dissabte"
+        } else {
+            return "Viernes"
+        }
     } else if (dia == 6) {
-        return "Sabado"
+        if (leng === "cat") {
+            return "Dissabte"
+        } else {
+            return "Sábado"
+        }
     }
     return null
 }
@@ -55,6 +90,9 @@ var queryMedicamentos = async function callQuery(token) {
         .done(async function(res) {
             if (res) {
                 var dia = document.getElementById("dia").innerHTML.toLowerCase()
+                if (leng == "cat") {
+                    dia = traducirCatToCas(dia)
+                }
                 var parent = document.getElementById("medicamentos")
                 parent.innerHTML = ""
                 for (let j = 0; j < res.medicamentos.length; j++) {
@@ -82,7 +120,11 @@ var queryMedicamentos = async function callQuery(token) {
                         div1.className = "container-img"
 
                         span1.className = "text"
-                        span1.innerHTML = "Ya me la he tomado:"
+                        if (leng === "cat") {
+                            span1.innerHTML = "Ja me l'he pres:"
+                        } else {
+                            span1.innerHTML = "Ya me la he tomado:"
+                        }
                         input.type = "checkbox"
                         input.defaultChecked = med.pastillaTomada
                         if (comprobarHora(med.hora)) {
@@ -240,4 +282,22 @@ function sleep2(ms) {
     return new Promise(resolve => {
         setTimeout(resolve, ms)
     })
+}
+
+function traducirCatToCas(dia) {
+    if (dia == "diumenge") {
+        return "domingo"
+    } else if (dia == "dilluns") {
+        return "lunes"
+    } else if (dia == "dimarts") {
+        return "martes"
+    } else if (dia == "dimecres") {
+        return "miércoles"
+    } else if (dia == "dijous") {
+        return "jueves"
+    } else if (dia == "dissabte") {
+        return "viernes"
+    } else if (dia == "dissabte") {
+        return "sábado"
+    }
 }

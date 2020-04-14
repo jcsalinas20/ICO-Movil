@@ -1,3 +1,37 @@
+var authToken = function comprobarToken() {
+    if (localStorage.getItem("jwt")) {
+        const token = localStorage.getItem("jwt")
+        var URL
+        if (token == "") {
+            URL = `https://api-ico.herokuapp.com/api/null/perfil`
+        } else {
+            URL = `https://api-ico.herokuapp.com/api/${token}/perfil`
+        }
+
+        $.ajax({
+            type: "GET",
+            url: URL,
+            crossDomain: true,
+            dataType: "json"
+        })
+            .done(async function(res) {
+                if (res.mensaje === "ERROR, no se encontró el Paciente.") {
+                    window.location.href = "./../../"
+                    return
+                } else {
+                    await sleep(2000)
+                    authToken()
+                }
+            })
+            .fail(function() {
+                return false
+            })
+    } else {
+        window.location.href = "./../../"
+        return
+    }
+}
+
 function sleep(ms) {
     return new Promise(resolve => {
         setTimeout(resolve, ms)

@@ -2,13 +2,7 @@
 <html lang="es">
     <head>
         <script>
-            var myVariable = "Hello World"
-
-            sessionStorage["myvariable"] = myVariable
-
-            var readValue = sessionStorage["myvariable"]
-            console.log(readValue)
-            sessionStorage.setItem("jwt", "uihfoerifhoerifhuoerh")
+            const leng = localStorage.getItem("leng")
         </script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,6 +40,9 @@
                 }
             }
         </style>
+        <script>
+            authToken()
+        </script>
     </head>
 
     <body>
@@ -76,6 +73,21 @@
                 frameborder="0"
                 width="90%"
                 height="60%"
+            ></iframe>
+        </div>
+
+        <div
+            style="z-index: 4; display: none; background-color: #69696970;"
+            id="container-frame-idioma"
+            class="col s12 frames"
+        >
+            <iframe
+                rel="preload"
+                id="frame-idioma"
+                src="../idioma/idioma.html"
+                frameborder="0"
+                width="100%"
+                height="100%"
             ></iframe>
         </div>
 
@@ -313,6 +325,11 @@
                     ).contentWindow.document.body.style.animation =
                         "0.5s ease-out 0s 1 slideInFromLeft"
                 }
+            }
+
+            if (leng === "cat") {
+                document.getElementById("pastillas").innerHTML = "pastilles"
+                document.getElementById("consultas").innerHTML = "consultes"
             }
         </script>
 

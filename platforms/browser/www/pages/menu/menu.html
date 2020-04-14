@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+    <script>
+        const leng = localStorage.getItem("leng")
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -44,12 +46,12 @@
                     <div class="linea-divisoria"></div>
                 </li>
                 <li onclick=mostrarHome()><a>Home</a></li>
-                <li onclick=mostrarGuia()><a>Guía</a></li>
+                <li onclick=mostrarGuia()><a id="guia">Guía</a></li>
                 <li onclick=mostrarPerfil()><a>Perfil</a></li>
                 <li>
                     <div class="linea-divisoria"></div>
                 </li>
-                <li onclick=mostrarAyuda()><a>Ayuda</a></li>
+                <li onclick=mostrarAyuda()><a id="ayuda">Ayuda</a></li>
                 <li><a  target="_blank" href="http://ico.gencat.cat/ca/inici">Web</a></li>
                 <li>
                     <div class="linea-divisoria"></div>
@@ -77,6 +79,13 @@
                 </li>
             </ul>
         </div>
+
+        <script>
+            if (leng === "cat") {
+                document.getElementById("guia").innerHTML = "Guia"
+                document.getElementById("ayuda").innerHTML = "Ajuda"
+            }
+        </script>
         <script src="../../js/index.js"></script>
         <!--JavaScript at end of body for optimized loading-->
         <script src="../../js/materialize.min.js"></script>

@@ -31,7 +31,7 @@ function mostrarGuia() {
         .contentWindow.document.getElementById(index).classList = "bolas"
     window.parent.document
         .getElementById("frame-guia")
-        .contentWindow.document.getElementById('1').classList =
+        .contentWindow.document.getElementById("1").classList =
         "bolas activated"
     window.parent.document.getElementById(
         "container-frame-guia"
@@ -67,28 +67,51 @@ async function mostrarPerfil() {
                 window.parent.document
                     .getElementById("framePerfil")
                     .contentWindow.document.getElementById(
-                        "fecha"
-                    ).innerHTML = `<b>Fecha Nacimiento:</b> ${res.fecha_nacimiento}`
-                window.parent.document
-                    .getElementById("framePerfil")
-                    .contentWindow.document.getElementById(
                         "dni"
                     ).innerHTML = `<b>DNI:</b> ${res.dni}`
-                window.parent.document
-                    .getElementById("framePerfil")
-                    .contentWindow.document.getElementById(
-                        "genero"
-                    ).innerHTML = `<b>Genero:</b> ${res.genero}`
-                window.parent.document
-                    .getElementById("framePerfil")
-                    .contentWindow.document.getElementById(
-                        "consultasP"
-                    ).innerHTML = `<b>Consultas pendientes:</b> ${res.consultasCount}`
-                window.parent.document
-                    .getElementById("framePerfil")
-                    .contentWindow.document.getElementById(
-                        "consultasH"
-                    ).innerHTML = `<b>Historial consultas:</b> ${res.historialConsultasCount}`
+                if (leng == "cat") {
+                    window.parent.document
+                        .getElementById("framePerfil")
+                        .contentWindow.document.getElementById(
+                            "fecha"
+                        ).innerHTML = `<b>Data Naixement:</b> ${res.fecha_nacimiento}`
+                    window.parent.document
+                        .getElementById("framePerfil")
+                        .contentWindow.document.getElementById(
+                            "genero"
+                        ).innerHTML = `<b>Gènere:</b> ${res.genero}`
+                    window.parent.document
+                        .getElementById("framePerfil")
+                        .contentWindow.document.getElementById(
+                            "consultasP"
+                        ).innerHTML = `<b>Consultes pendents:</b> ${res.consultasCount}`
+                    window.parent.document
+                        .getElementById("framePerfil")
+                        .contentWindow.document.getElementById(
+                            "consultasH"
+                        ).innerHTML = `<b>Historial consultes:</b> ${res.historialConsultasCount}`
+                } else {
+                    window.parent.document
+                        .getElementById("framePerfil")
+                        .contentWindow.document.getElementById(
+                            "fecha"
+                        ).innerHTML = `<b>Fecha Nacimiento:</b> ${res.fecha_nacimiento}`
+                    window.parent.document
+                        .getElementById("framePerfil")
+                        .contentWindow.document.getElementById(
+                            "genero"
+                        ).innerHTML = `<b>Género:</b> ${res.genero}`
+                    window.parent.document
+                        .getElementById("framePerfil")
+                        .contentWindow.document.getElementById(
+                            "consultasP"
+                        ).innerHTML = `<b>Consultas pendientes:</b> ${res.consultasCount}`
+                    window.parent.document
+                        .getElementById("framePerfil")
+                        .contentWindow.document.getElementById(
+                            "consultasH"
+                        ).innerHTML = `<b>Historial consultas:</b> ${res.historialConsultasCount}`
+                }
             }
         })
         .fail(function() {

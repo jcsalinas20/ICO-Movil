@@ -23,6 +23,27 @@ $(document).ready(function() {
     $(".tabs").tabs()
 })
 
+function peticion(URL, token) {
+    $.ajax({
+        type: "GET",
+        url: URL,
+        crossDomain: true,
+        dataType: "json"
+    })
+        .done(async function(res) {
+            if (res.mensaje === "ERROR, no se encontró el Paciente.") {
+                console.log(res.mensaje)
+                return
+            } else {
+                window.location.href = `./pages/home/home.html?token=${token}`
+                return
+            }
+        })
+        .fail(function() {
+            return false
+        })
+}
+
 function authLogin() {
     document
         .getElementById("frame-preload")
